@@ -20,11 +20,25 @@ The application uses Spring Data JPA and MySQL for data persistence.
 ## Installation
 ### Step 1: Clone the Repository
 Clone the repository to your local machine:
-``` git clone https://github.com/evepitchayapa/library.git ```
+``` 
+git clone https://github.com/evepitchayapa/library.git 
+```
 
 ### Step 2: Set Up MySQL Database
 Create a database in MySQL:
-``` CREATE DATABASE library_db; ```
+``` 
+CREATE SCHEMA IF NOT EXISTS Library;
+USE Library;
+
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    published_date DATE
+);
+```
 
 ### Step 3: Configure Application Properties
 ```
